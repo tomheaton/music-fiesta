@@ -1,24 +1,25 @@
-import logo from './images/logo.svg';
+import {useState} from "react";
 
 const App = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [loading, setLoading] = useState<boolean>(false);
+
+    return (
+        <div className="app">
+            { loading ? (
+                <header className="app-header">
+                    <div>loading...</div>
+                </header>
+            ) : (
+                <header className="app-header">
+                    <h1>music fiesta</h1>
+                    <button>
+                        <code>login with spotify</code>
+                    </button>
+                </header>
+            ) }
+        </div>
+    );
 }
 
 export default App;
